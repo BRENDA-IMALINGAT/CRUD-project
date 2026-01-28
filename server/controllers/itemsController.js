@@ -1,6 +1,5 @@
 const { db } = require('../config/firebase');
 
-// Simple in-memory store for fallback mode
 let localItems = [
     { id: '1', title: 'Welcome Item', description: 'This is a sample item served from Node.js (In-Memory). Add valid Firebase credentials to persist data to Firestore.', createdAt: new Date().toISOString() }
 ];
@@ -24,7 +23,6 @@ exports.getItems = async (req, res) => {
 exports.createItem = async (req, res) => {
     try {
         const { title, description } = req.body;
-        // Basic validation
         if (!title) return res.status(400).json({ error: 'Title is required' });
 
         const newItem = { title, description, createdAt: new Date().toISOString() };
@@ -34,10 +32,9 @@ exports.createItem = async (req, res) => {
             return res.status(201).json({ id: docRef.id, ...newItem });
         }
 
-        // Local fallback
         const id = Date.now().toString();
         const localItem = { id, ...newItem };
-        localItems.unshift(localItem); // Add to beginning
+        localItems.unshift(localItem);
         return res.status(201).json(localItem);
 
     } catch (error) {

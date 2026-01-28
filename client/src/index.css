@@ -1,18 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --bg-dark: #0f172a;
+  /* Default: dark theme */
+  --bg-dark: #050016;
   --bg-card: rgba(30, 41, 59, 0.7);
   --primary: #8b5cf6;
-  /* Violet */
-  --primary-glow: rgba(139, 92, 246, 0.5);
+  --primary-glow: rgba(134, 95, 226, 0.5);
   --secondary: #ec4899;
-  /* Pink */
   --text-main: #f8fafc;
   --text-scnd: #94a3b8;
   --glass-border: rgba(255, 255, 255, 0.08);
   --glass-highlight: rgba(255, 255, 255, 0.05);
   --danger: #ef4444;
+  --bg-gradient-1: rgba(124, 58, 237, 0.45);
+  --bg-gradient-2: rgba(236, 72, 153, 0.35);
+  --item-card-bg: rgba(255, 255, 255, 0.03);
 }
 
 body {
@@ -20,11 +22,28 @@ body {
   font-family: 'Outfit', sans-serif;
   background-color: var(--bg-dark);
   background-image:
-    radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.15), transparent 25%),
-    radial-gradient(circle at 85% 30%, rgba(236, 72, 153, 0.15), transparent 25%);
+    radial-gradient(circle at 15% 50%, var(--bg-gradient-1), transparent 25%),
+    radial-gradient(circle at 85% 30%, var(--bg-gradient-2), transparent 25%);
   color: var(--text-main);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Light theme overrides */
+body[data-theme='light'] {
+  --bg-dark: #fff7ed;
+  --bg-card: rgba(255, 255, 255, 0.9);
+  --primary: #2563eb; /* Vibrant blue for light mode */
+  --primary-glow: rgba(37, 99, 235, 0.35);
+  --secondary: #22c55e; /* Vibrant green accent */
+  --text-main: #0f172a;
+  --text-scnd: #475569;
+  --glass-border: rgba(15, 23, 42, 0.12);
+  --glass-highlight: rgba(255, 255, 255, 0.9);
+  --danger: #dc2626;
+  --bg-gradient-1: rgba(251, 146, 60, 0.35);
+  --bg-gradient-2: rgba(56, 189, 248, 0.4);
+  --item-card-bg: #e0edff; /* Light, readable blue card background */
 }
 
 /* Scrollbar */
@@ -96,7 +115,7 @@ h1 {
 }
 
 .glass-modal {
-  background: #1e293b;
+  background: var(--bg-card);
   border: 1px solid var(--glass-border);
   border-radius: 24px;
   padding: 2.5rem;
@@ -119,7 +138,7 @@ h1 {
 }
 
 .item-card {
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--item-card-bg);
   border: 1px solid var(--glass-border);
   border-radius: 16px;
   padding: 1.5rem;
@@ -252,7 +271,7 @@ h1 {
   border: 1px solid var(--glass-border);
   border-radius: 12px;
   padding: 14px 16px;
-  color: white;
+  color: var(--text-main);
   font-size: 1rem;
   font-family: inherit;
   transition: all 0.2s;
@@ -266,11 +285,50 @@ h1 {
   background: rgba(15, 23, 42, 0.8);
 }
 
+body[data-theme='light'] .input-field {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: var(--glass-border);
+  color: var(--text-main);
+}
+
+body[data-theme='light'] .input-field:focus {
+  background: rgba(255, 255, 255, 1);
+}
+
 .grid-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
+}
+
+.search-input {
+  max-width: 260px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 2.5rem 1.25rem;
+  }
+
+  .glass-panel {
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+    text-align: left;
+  }
+
+  .grid-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 2rem 1rem;
+  }
 }
 
 /* Empty State */
@@ -278,7 +336,7 @@ h1 {
   text-align: center;
   padding: 4rem;
   color: var(--text-scnd);
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--item-card-bg);
   border-radius: 24px;
   border: 1px dashed var(--glass-border);
 }

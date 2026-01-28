@@ -1,17 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { X } from 'lucide-react';
 
 const ItemForm = ({ item, onClose, onSave }) => {
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
+    const [title, setTitle] = useState(item?.title ?? '');
+    const [description, setDescription] = useState(item?.description ?? '');
     const [loading, setLoading] = useState(false);
-
-    useEffect(() => {
-        if (item) {
-            setTitle(item.title);
-            setDescription(item.description);
-        }
-    }, [item]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();

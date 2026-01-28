@@ -12,13 +12,12 @@ try {
         credential: admin.credential.cert(serviceAccount)
       });
       db = admin.firestore();
-      console.log("🔥 Firebase Connected Successfully");
   } else {
-    console.warn("⚠️  FIREBASE_SERVICE_ACCOUNT_KEY not found in .env. Using IN-MEMORY fallback mode.");
+    console.warn("FIREBASE_SERVICE_ACCOUNT_KEY not found in .env. Using in-memory fallback mode.");
   }
 } catch (error) {
-  console.error("❌ Error initializing Firebase:", error.message);
-  console.warn("⚠️  Using IN-MEMORY fallback mode due to initialization error.");
+  console.error("Error initializing Firebase:", error.message);
+  console.warn("Using in-memory fallback mode due to initialization error.");
 }
 
 module.exports = { db };
