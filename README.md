@@ -1,6 +1,6 @@
-## CRUD
+## EMPLOYEE MANAGER
 
-**CRUD** is a full‑stack Create, Read, Update and Delete application built with a React (Vite) frontend and a Node.js/Express backend, with optional Firebase Firestore persistence and an in‑memory fallback for easy local testing.
+**EMPLOYEE MANAGER** is a full‑stack Create, Read, Update and Delete application for managing employees, built with a React (Vite) frontend and a Node.js/Express backend, with optional Firebase Firestore persistence and an in‑memory fallback for easy local testing.
 
 ### How the project works
 
@@ -67,12 +67,12 @@
 4. Open the URL that Vite prints in the terminal (by default `http://localhost:5173`).  
    The client is configured to call the backend via the relative path `/api/items`, so when both are running locally you can use the app without any extra configuration.
 
-### Using the CRUD application
+### Using the Employee Manager application
 
-- **View items (Read)**: When the app loads, it requests `GET /api/items` and displays each item in a card grid.  
-- **Create items (Create)**: Click the **Add Item** button in the header to open the modal form. Enter a title and optional description, then submit to create a new item.  
-- **Update items (Update)**: On any item card, click the edit icon to open the modal pre‑filled with that item’s details, then change the fields and save.  
-- **Delete items (Delete)**: On any item card, click the delete icon and confirm; the item is removed from Firestore or the in‑memory store, depending on configuration.
+- **View employees (Read)**: When the app loads, it requests `GET /api/items` and displays each employee in a card grid.  
+- **Create employees (Create)**: Click the **Add Employee** button in the header to open the modal form. Enter a name and optional details, then submit to create a new employee.  
+- **Update employees (Update)**: On any employee card, click the edit icon to open the modal pre‑filled with that employee’s details, then change the fields and save.  
+- **Delete employees (Delete)**: On any employee card, click the delete icon and confirm; the employee is removed from Firestore or the in‑memory store, depending on configuration.
 
 ### Tech stack and design
 

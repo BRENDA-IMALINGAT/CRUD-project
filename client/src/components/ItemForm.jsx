@@ -17,7 +17,7 @@ const ItemForm = ({ item, onClose, onSave }) => {
         <div className="glass-modal-overlay">
             <div className="glass-modal">
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '2rem', alignItems: 'center' }}>
-                    <h2>{item ? 'Edit Item' : 'New Item'}</h2>
+                    <h2>{item ? 'Edit Employee' : 'New Employee'}</h2>
                     <button onClick={onClose} className="btn-icon">
                         <X size={24} />
                     </button>
@@ -30,7 +30,7 @@ const ItemForm = ({ item, onClose, onSave }) => {
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
                             required
-                            placeholder="Enter item title..."
+                            placeholder="Enter employee name..."
                         />
                     </div>
                     <div className="input-group">
@@ -40,7 +40,7 @@ const ItemForm = ({ item, onClose, onSave }) => {
                             rows="4"
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
-                            placeholder="Enter item description..."
+                            placeholder="Enter employee details..."
                         />
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '1rem', marginTop: '2rem' }}>
@@ -48,7 +48,7 @@ const ItemForm = ({ item, onClose, onSave }) => {
                             Cancel
                         </button>
                         <button type="submit" className="btn btn-primary" disabled={loading}>
-                            {loading ? <div className="loading-spinner" style={{ width: 16, height: 16 }} /> : (item ? 'Update Item' : 'Create Item')}
+                            {loading ? <div className="loading-spinner" style={{ width: 16, height: 16 }} /> : (item ? 'Update Employee' : 'Create Employee')}
                         </button>
                     </div>
                 </form>

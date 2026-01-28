@@ -87,9 +87,9 @@ function App() {
               <Database color="white" size={24} />
             </div>
             <div>
-              <h1 style={{ marginBottom: '0.25rem', textAlign: 'left' }}>CRUD</h1>
+              <h1 style={{ marginBottom: '0.25rem', textAlign: 'left' }}>EMPLOYEE MANAGER</h1>
               <p style={{ margin: 0, color: 'var(--text-scnd)', fontSize: '0.9rem' }}>
-                Create, read, update, and delete items with our CRUD App.
+                Create, read, update, and delete your employees with our Employees Manager.
               </p>
             </div>
           </div>
@@ -105,13 +105,13 @@ function App() {
             <input
               className="input-field search-input"
               type="text"
-              placeholder="Search items..."
+              placeholder="Search employees..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
             <button onClick={handleCreate} className="btn btn-primary">
               <Plus size={20} />
-              <span>Add Item</span>
+              <span>Add Employee</span>
             </button>
           </div>
         </div>
@@ -122,12 +122,12 @@ function App() {
           </div>
         ) : !hasItems ? (
           <div className="empty-state">
-            <h3>No items found</h3>
-            <p>Create your first item to get started</p>
+            <h3>No employees found</h3>
+            <p>Create your first employee to get started</p>
           </div>
         ) : filteredItems.length === 0 ? (
           <div className="empty-state">
-            <h3>No items match your search</h3>
+            <h3>No employees match your search</h3>
             <p>Try adjusting your search terms.</p>
           </div>
         ) : (
